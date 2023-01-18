@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     get 'followings' => 'relationships#followings'
     get 'followers' => 'relationships#followers'
   end
-  resources :groups, except: [:destroy]
-
+  resources :groups do
+    get "join" => "groups#join"
+    get "leave" => "groups#leave"
+  end
 end
